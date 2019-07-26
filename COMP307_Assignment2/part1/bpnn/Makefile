@@ -1,0 +1,19 @@
+# Make the files in the "bpnn" directory
+
+#ADDED EXE3
+
+CC = gcc
+CFLAGS = -g  -O
+EXE1=nntrain
+EXE2=nntest
+EXE3=test-pat
+all: $(EXE1) $(EXE2) $(EXE3)
+
+$(EXE1) :
+	$(CC) $(CFLAGS) -o $(EXE1) nntrain.c backprop.c globals.c network.c patterns.c weights.c -lm -lc
+
+$(EXE2):
+	$(CC) $(CFLAGS) -o $(EXE2) nntest.c backprop.c globals.c network.c patterns.c weights.c -lm -lc
+
+$(EXE3):
+	$(CC) $(CFLAGS) -o $(EXE3) test-pat.c backprop.c globals.c network.c patterns.c weights.c -lm -lc
